@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: rgb(12, 12, 12); */
+}
+.container{
+    min-height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.clock{
+    height: 250px;
+    width: 250px;
+    background: url(clock.png) no-repeat;
+    background-size:cover;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    box-shadow: 3px 3px 5px rgb(48, 240, 234),
+                -3px -3px 5px rgb(255, 255, 255),
+                3px 3px 5px rgb(153, 235, 233) inset,
+                -3px -3px 5px rgb(255, 255, 255) inset;
+    position: relative;
+
+            
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    top:50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1cadad;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 3px 3px 5px #ccc,
+                -3px -3px 5px #fff,
+                3px 3px 5px #ccc inset,
+                -3px -3px 5px #fff inset;
+
+}
+.second{
+    position: absolute;
+    top: 27px; left: 50%;
+    transform: translateX(-50%);
+    height: 115px;
+    width: 4px;
+    background: #d17b53;
+    border-radius: 100% 100% 5px 5px ;
+    animation: second 60s steps(5000) infinite;
+    transform-origin: 71% 75%;
+    /* transform-origin: bottom; */
+    z-index: 2;
+    
+}
+
+
+@keyframes second{
+    0%{ transform:  translateX(-50%) rotateZ(0deg);
+    }
+    100%{ transform:  translateX(-50%) rotateZ(360deg);
+    }
+}
+
+
+.minute{
+    position: absolute;
+    top: 15px; left: 50%;
+    transform: translateX(-50%);
+    height: 100px;
+    width: 5px;
+    background: rgb(157, 215, 70);
+    border-radius: 50px ;
+    animation: minute 3600s steps(3600) infinite;
+    transform-origin: bottom;
+    z-index: 1;
+}
+
+
+@keyframes minute{
+    0%{ transform:  translateX(-50%) rotateZ(0deg);
+    }
+    100%{ transform:  translateX(-50%) rotateZ(360deg);
+    }
+}
+
+.hour{
+    position: absolute;
+    top: 55px; left: 50%;
+    transform: translateX(-50%);
+    height: 60px;
+    width: 6px;
+    background: blueviolet;
+    border-radius: 50px ;
+    animation: hour 216000s steps(216000) infinite;
+    transform-origin: bottom;
+}
+
+
+@keyframes hour{
+    0%{ transform:  translateX(-50%) rotateZ(0deg);
+    }
+    100%{ transform:  translateX(-50%) rotateZ(360deg);
+    }
+}
